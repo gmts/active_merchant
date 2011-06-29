@@ -151,7 +151,7 @@ module ActiveMerchant #:nodoc:
       #
       # * <tt>:card_number</tt> -- The credit card number the refund is being issued to. (REQUIRED)
       def refund(money, identification, options = {})
-        requires!(options, :card_number)
+        requires!(options, :card_number, :first_name, :last_name, :zip)
 
         post = { :trans_id => identification,
                  :card_num => options[:card_number]
